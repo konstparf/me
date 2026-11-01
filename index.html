@@ -193,7 +193,14 @@
   .mark-sub { color: var(--muted); font-size: 14px; margin-top: 8px; }
   .corp h3 { margin: 0 0 8px; font-size: 19px; }
   .corp p { margin: 0 0 12px; }
-  .access { display: inline-block; font-size: 15px; padding: 6px 12px; border-radius: 10px; background: var(--cloud); }
+  .open-corp {
+    display: inline-flex; align-items: center; gap: 8px; margin-top: 4px;
+    padding: 12px 20px; border-radius: 999px; background: #12233F; color: #fff;
+    font-weight: 600; font-size: 16px; text-decoration: none;
+  }
+  .open-corp::after { content: ""; width: 9px; height: 9px; border-top: 2px solid #FF6A1F; border-right: 2px solid #FF6A1F; transform: rotate(45deg); }
+  .open-corp:hover { background: #1C3358; }
+  .corp .access { margin: 10px 0 0; font-size: 14.5px; color: var(--muted); }
 
   @media (max-width: 860px) {
     .picks { grid-template-columns: repeat(3, 1fr); }
@@ -468,7 +475,8 @@
       <div>
         <h3>Прототип HCM-системы нового поколения</h3>
         <p>Корпоративная система, которая строится от потребностей человека, а не от разделов и справочников. Она <strong>проактивная</strong> – сама подсказывает следующий шаг – и <strong>агентная</strong>: берёт рутину на себя и доводит дело до результата</p>
-        <span class="access">Доступ открываю по запросу – достаточно мне написать</span>
+        <a class="open-corp" href="https://corp.konstparf.ru" target="_blank" rel="noopener">Открыть макет корпа</a>
+        <p class="access">Доступ открываю по запросу – достаточно мне написать</p>
       </div>
     </div>
   </section>
