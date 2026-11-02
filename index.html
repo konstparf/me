@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232E46C2'/%3E%3Ctext x='29' y='47' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='700' font-size='46' fill='%23fff'%3E%D0%BA%3C/text%3E%3Cpath d='M51 9Q52 17 59 18Q52 19 51 27Q50 19 43 18Q50 17 51 9Z' fill='%23FF6A1F'/%3E%3C/svg%3E">
 <title>Константин – продакт HR-Tech</title>
 <meta name="description" content="Константин – продакт-менеджер HR-Tech и внутренних сервисов для сотрудников">
 <script>
@@ -195,6 +196,10 @@
   .mark-sub { color: var(--muted); font-size: 14px; margin-top: 8px; }
   .corp h3 { margin: 0 0 8px; font-size: 19px; }
   .corp p { margin: 0 0 12px; }
+  .principles { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 6px; }
+  .principles li { position: relative; padding-left: 22px; }
+  .principles li::before { content: ""; position: absolute; left: 2px; top: 6px; width: 11px; height: 11px;
+    background: #FF6A1F; clip-path: path("M5.5 0Q6.1 4.9 11 5.5Q6.1 6.1 5.5 11Q4.9 6.1 0 5.5Q4.9 4.9 5.5 0Z"); }
   .open-corp {
     display: inline-flex; align-items: center; gap: 8px; margin-top: 4px;
     padding: 12px 20px; border-radius: 999px; background: #12233F; color: #fff;
@@ -271,11 +276,11 @@
         <p class="wish" id="wish">Хорошего дня!</p>
         <p class="intro">Я Константин, и ты на моей страничке – здесь немного обо мне и моём опыте</p>
         <div class="tags">
-          <span class="tag">Продакт-менеджер HR-Tech и внутренних сервисов</span>
+          <span class="tag">HR-Tech и внутренние сервисы</span>
         </div>
       </div>
     </div>
-    <h1 class="lead">Делаю продукты, которые помогают людям быть счастливее: освобождают время от процессов для вызовов бизнеса, ради которых они пришли в компанию, и дают реализовать себя</h1>
+    <h1 class="lead">Делаю продукты, которые помогают людям быть счастливее: освобождают время от процессов для вызовов бизнеса, в которых они пришли себя реализовать</h1>
   </section>
 
   <!-- Опыт -->
@@ -388,7 +393,7 @@
       <div class="stats">
         <div class="stat"><b>1 500</b><span>сотрудников пользуются порталом</span></div>
         <div class="stat"><b>97%</b><span>MAU, DAU 67%</span></div>
-        <div class="stat"><b>4,6–4,8</b><span>удовлетворённость из 5</span></div>
+        <div class="stat"><b>4,6–4,8</b><span>CSAT из 5 – оценка сервисов сотрудниками</span></div>
         <div class="stat"><b>2–3</b><span>крупных запуска в квартал</span></div>
       </div>
       <ul>
@@ -439,9 +444,9 @@
         <p>Не раз принимал команды, уставшие от прошлых неудач, и вместе мы возвращали драйв и вовлечённость. Люди оставались годами: за последние четыре года ушли лишь три сотрудницы, и по причинам, не связанным с работой. А коллеги из других команд мечтали попасть к нам</p>
       </div>
       <div class="person">
-        <p class="big">3</p>
-        <h3>лида выросли внутри команд</h3>
-        <p>Тимлид и фронтенд-лид в Домклике, тимлид в CardsPro. Разработчики росли от джунов и мидлов до мидл+ и сеньоров</p>
+        <p class="big">10</p>
+        <h3>человек выросли внутри команд</h3>
+        <p>2 лида, 2 сеньора и 6 мидл+</p>
       </div>
     </div>
   </section>
@@ -491,7 +496,7 @@
   <!-- Видение -->
   <section class="cloud" aria-labelledby="proj">
     <h2 id="proj">Моё видение HR-сервисов</h2>
-    <p class="note">Собираю прототип сам – так проще показать идею, чем рассказывать её на слайдах</p>
+    <p class="note">Собираю прототип – так проще показать идею, чем рассказывать её на слайдах</p>
     <div class="corp">
       <div>
         <div class="mark" aria-label="корп">корп<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1Q13.4 10.6 23 12Q13.4 13.4 12 23Q10.6 13.4 1 12Q10.6 10.6 12 1Z" fill="#FF6A1F"/></svg></div>
@@ -499,7 +504,11 @@
       </div>
       <div>
         <h3>Прототип HCM-системы нового поколения</h3>
-        <p>Корпоративная система, которая строится от потребностей человека, а не от разделов и справочников. Она <strong>проактивная</strong> – сама подсказывает следующий шаг – и <strong>агентная</strong>: берёт рутину на себя и доводит дело до результата</p>
+        <p>Корпоративная система, которая строится от потребностей человека, а не от разделов и справочников</p>
+        <ul class="principles">
+          <li><strong>Проактивность</strong> – заранее подсказывать следующий шаг</li>
+          <li><strong>Агентность</strong> – забирать на себя рутину и доводить дело до результата</li>
+        </ul>
         <a class="open-corp" href="https://corp.konstparf.ru" target="_blank" rel="noopener" onclick="goal('corp_open')">Открыть макет корпа</a>
         <p class="access">Доступ открываю по запросу – достаточно мне написать</p>
       </div>
