@@ -204,6 +204,8 @@
   .open-corp:hover { background: #1C3358; }
   .corp .access { margin: 10px 0 0; font-size: 14.5px; color: var(--muted); }
 
+  .foot { text-align: center; color: var(--muted); font-size: 13px; padding: 8px 16px 0; }
+
   @media (max-width: 860px) {
     .picks { grid-template-columns: repeat(3, 1fr); }
     .people { grid-template-columns: 1fr; }
@@ -230,6 +232,19 @@
   }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=114024618', 'ym');
+
+    ym(114024618, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/114024618" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </head>
 <body>
 <main class="page">
@@ -485,14 +500,19 @@
       <div>
         <h3>Прототип HCM-системы нового поколения</h3>
         <p>Корпоративная система, которая строится от потребностей человека, а не от разделов и справочников. Она <strong>проактивная</strong> – сама подсказывает следующий шаг – и <strong>агентная</strong>: берёт рутину на себя и доводит дело до результата</p>
-        <a class="open-corp" href="https://corp.konstparf.ru" target="_blank" rel="noopener">Открыть макет корпа</a>
+        <a class="open-corp" href="https://corp.konstparf.ru" target="_blank" rel="noopener" onclick="goal('corp_open')">Открыть макет корпа</a>
         <p class="access">Доступ открываю по запросу – достаточно мне написать</p>
       </div>
     </div>
   </section>
 
+  <footer class="foot">Сайт использует Яндекс Метрику и cookies, чтобы понимать, что посетителям интересно</footer>
+
 </main>
 <script>
+  // Цели Метрики
+  function goal(name, params) { try { if (window.ym) ym(114024618, "reachGoal", name, params); } catch (e) {} }
+
   // Приветствие по времени посетителя
   (function () {
     var h = new Date().getHours(), t;
@@ -512,7 +532,7 @@
       try { if (mode === "auto") localStorage.removeItem("theme"); else localStorage.setItem("theme", mode); } catch (e) {}
     }
     apply(root.getAttribute("data-theme") || "auto");
-    btns.forEach(function (b) { b.addEventListener("click", function () { apply(b.dataset.mode); }); });
+    btns.forEach(function (b) { b.addEventListener("click", function () { apply(b.dataset.mode); goal("theme_switch", { theme: b.dataset.mode }); }); });
   })();
 
   // Шкала опыта
@@ -557,13 +577,13 @@
       bars.forEach(function (b) { b.setAttribute("aria-selected", String(b.dataset.id === id)); });
     }
     picks.forEach(function (p, i) {
-      p.addEventListener("click", function () { select(p.dataset.id); });
+      p.addEventListener("click", function () { select(p.dataset.id); goal("company_open", { company: p.querySelector("b").textContent }); });
       p.addEventListener("keydown", function (e) {
         var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
         if (d) { e.preventDefault(); select(picks[(i + d + picks.length) % picks.length].dataset.id, true); }
       });
     });
-    bars.forEach(function (b) { b.addEventListener("click", function () { select(b.dataset.id); }); });
+    bars.forEach(function (b) { b.addEventListener("click", function () { select(b.dataset.id); goal("company_open", { company: b.getAttribute("aria-label") }); }); });
     select("dom");
     var w = document.getElementById("scaleWrap"); w.scrollLeft = w.scrollWidth;
   })();
