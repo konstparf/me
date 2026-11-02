@@ -86,6 +86,8 @@
   .cloud { background: var(--cloud); border-radius: 28px; padding: 40px; box-shadow: var(--shadow); margin-bottom: 20px; }
   .cloud > h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(26px, 3.6vw, 32px); line-height: 1.2; margin: 0 0 6px; }
   .note { color: var(--muted); margin: 0 0 28px; max-width: 40em; }
+  .hint { display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; color: var(--accent); }
+  .hint svg { width: 20px; height: 20px; flex: none; }
 
   /* Приветствие */
   .hello { display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: center; }
@@ -94,10 +96,10 @@
   .intro { font-size: 19px; margin: 0 0 16px; max-width: 30em; }
   .tags { display: flex; flex-wrap: wrap; gap: 8px; }
   .tag { font-size: 14px; padding: 5px 12px; border-radius: 999px; background: var(--bg); }
-  .lead { font-family: var(--serif); font-weight: 500; font-size: clamp(20px, 2.8vw, 24px); line-height: 1.4; margin: 36px 0 0; padding-top: 28px; border-top: 1px solid var(--rule); max-width: 28em; }
+  .lead { font-family: var(--serif); font-weight: 500; font-size: 19px; line-height: 1.5; margin: 36px 0 0; padding-top: 28px; border-top: 1px solid var(--rule); max-width: 40em; }
 
   /* Шкала опыта */
-  .scale-wrap { overflow-x: auto; margin: 0 0 20px; scrollbar-width: none; }
+  .scale-wrap { overflow-x: auto; margin: -6px -6px 14px; padding: 6px; scrollbar-width: none; }
   .scale-wrap::-webkit-scrollbar { display: none; }
   .scale { position: relative; height: 84px; min-width: 560px; }
   .years { position: absolute; left: 0; right: 0; bottom: 0; height: 28px; }
@@ -264,7 +266,8 @@
   <!-- Опыт -->
   <section class="cloud" aria-labelledby="exp">
     <h2 id="exp">Опыт</h2>
-    <p class="note">20 лет: от систем для аэропортов и программ лояльности до HR-сервисов. Нажми на место работы, чтобы узнать подробнее</p>
+    <p class="note">20 лет: от систем для аэропортов и программ лояльности до HR-сервисов<br>
+      <span class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M12 10.5V9a1.5 1.5 0 0 1 3 0v2"/><path d="M15 10.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-1a6 6 0 0 1-4.6-2.2L4 15.6a1.6 1.6 0 0 1 2.4-2.1L9 16V11"/></svg>Нажми на место работы, чтобы узнать подробнее</span></p>
 
     <div class="scale-wrap" id="scaleWrap">
       <div class="scale" id="scale">
@@ -401,22 +404,22 @@
   <!-- Люди -->
   <section class="cloud" aria-labelledby="ppl">
     <h2 id="ppl">Люди, с которыми я работал</h2>
-    <p class="note">Собирал команды с нуля и принимал уже существующие – в том числе в непростой момент</p>
+    <p class="note">Собирал команды с нуля и принимал уже существующие. Мне важно, чтобы людям нравилось работать вместе – тогда и результат не заставляет себя ждать</p>
     <div class="people">
       <div class="person">
-        <p class="big">7</p>
-        <h3>Собираю с нуля</h3>
-        <p>В CardsPro нанял и обучил проектных менеджеров, продакта, поддержку и тестирование. А ещё раньше нашёл разработчиков и редакторов для отраслевого портала</p>
+        <p class="big">4</p>
+        <h3>команды собрал и вёл</h3>
+        <p>Домклик, CardsPro, СОГАЗ и отраслевой портал – в каждой находил людей, выстраивал процессы и общий ритм</p>
+      </div>
+      <div class="person">
+        <p class="big">до 16</p>
+        <h3>человек в команде</h3>
+        <p>Спокойно работаю в таком масштабе, и к большему тоже готов</p>
       </div>
       <div class="person">
         <p class="big">3,6 <small>→</small> 4,86</p>
-        <h3>Делаю так, чтобы хотелось работать</h3>
-        <p>В Домклике руководил командой из 9–16 человек, и оценка атмосферы в ней заметно выросла</p>
-      </div>
-      <div class="person">
-        <p class="big">16</p>
-        <h3>Работаю с большими командами</h3>
-        <p>В CardsPro вместе с командой разработки из 16 человек: Scrum в разработке, Kanban в поддержке</p>
+        <h3>оценка атмосферы в Домклике</h3>
+        <p>Везде, где я работал, люди оставались надолго и работали с огоньком</p>
       </div>
     </div>
   </section>
