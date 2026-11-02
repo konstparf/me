@@ -169,6 +169,8 @@
   .num { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: var(--cloud); font-weight: 700; font-size: 15px; margin-bottom: 12px; }
   .step h3 { margin: 0 0 6px; font-size: 17px; line-height: 1.3; }
   .step p { margin: 0; color: var(--muted); font-size: 15px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 5px; margin: 0 0 10px; }
+  .chip { white-space: nowrap; font-size: 12.5px; line-height: 1.4; padding: 2px 8px; border-radius: 6px; background: var(--cloud); color: var(--muted); border: 1px solid var(--rule); }
   .ways { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
   .way { font-size: 13.5px; padding: 4px 10px; border-radius: 999px; background: var(--cloud); }
   .way.no { color: var(--accent); font-weight: 600; }
@@ -454,18 +456,20 @@
   <!-- Подход -->
   <section class="cloud" aria-labelledby="way">
     <h2 id="way">Подход</h2>
-    <p class="note">Начинаю не с функций, а с человека и его задачи. И двигаюсь небольшими шагами, чтобы быстро видеть, что работает</p>
+    <p class="note">Начинаю не с функций, а с человека и его задачи. Мне важен outcome, а не output: ценность для людей и бизнеса, а не количество фич. Двигаюсь небольшими шагами, чтобы быстро видеть, что работает</p>
 
     <ol class="flow" role="list">
       <li class="step">
         <div class="num">1</div>
         <h3>Понять, что нужно на самом деле</h3>
-        <p>За запросом «сделайте форму» часто стоит совсем другая боль. Говорю с теми, кто будет пользоваться, и смотрю на их путь целиком</p>
+        <div class="chips"><span class="chip">Discovery</span><span class="chip">JTBD</span><span class="chip">Интервью</span><span class="chip">CJM</span></div>
+        <p>За запросом «сделайте так» часто стоит совсем другая боль. Говорю с теми, кто будет пользоваться, и смотрю на их путь целиком – ищу работу, которую человек на самом деле хочет сделать</p>
       </li>
       <li class="step">
         <div class="num">2</div>
         <h3>Выбрать самый короткий путь</h3>
-        <p>Лучшее решение не всегда разработка</p>
+        <div class="chips"><span class="chip">Приоритизация</span><span class="chip">Бизнес-кейс</span></div>
+        <p>Оцениваю эффект и стоимость решения. Лучшее не всегда разработка</p>
         <div class="ways">
           <span class="way">Упростить процесс</span>
           <span class="way">Автоматизировать</span>
@@ -475,21 +479,23 @@
       <li class="step">
         <div class="num">3</div>
         <h3>Запустить первый шаг</h3>
-        <p>Выпускаем то, что уже помогает людям, а не ждём идеальной версии через год</p>
+        <div class="chips"><span class="chip">AI-прототипирование</span><span class="chip">MVP</span><span class="chip">MLP</span></div>
+        <p>Проверяю идеи на прототипах, в том числе с ИИ. Затем грумим и выпускаем быстрое решение, которое уже помогает людям, – и проверяем его в реальном процессе</p>
       </li>
       <li class="step">
         <div class="num">4</div>
         <h3>Посмотреть и улучшить</h3>
-        <p>По метрикам и отзывам видно, что работает. Если появилось новое – возвращаемся ко второму шагу</p>
+        <div class="chips"><span class="chip">Целевые действия</span><span class="chip">DAU/MAU</span><span class="chip">CSAT</span><span class="chip">Обращения</span></div>
+        <p>Смотрю, как сервисом пользуются и что говорят люди. Если появилось новое – возвращаемся ко второму шагу</p>
       </li>
     </ol>
-    <div class="loop" aria-hidden="true"><div><span>и снова, пока не станет удобно</span></div></div>
+    <div class="loop" aria-hidden="true"><div><span>build – measure – learn, пока не станет удобно</span></div></div>
 
     <div class="good">
       <p class="good-title">Хороший сервис – это когда он</p>
-      <div class="check"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Полезен</b><p>Решает настоящую задачу человека, а не задачу из чьей-то презентации</p></div>
-      <div class="check"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Востребован</b><p>Им пользуются, потому что так проще, а не потому что обязали</p></div>
-      <div class="check"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Надёжен</b><p>Работает, когда нужен: в день зарплаты, перед отпуском, в конце квартала</p></div>
+      <div class="check"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Полезен</b><p>Решает настоящую задачу человека и даёт значимый эффект бизнесу</p></div>
+      <div class="check"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Востребован</b><p>Им пользуются добровольно – это видно по охвату и регулярности использования</p></div>
+      <div class="check"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Надёжен</b><p>Работает быстро, без багов и когда нужен: в день зарплаты, перед отпуском, в конце квартала</p></div>
     </div>
   </section>
 
