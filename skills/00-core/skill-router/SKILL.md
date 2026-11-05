@@ -23,6 +23,7 @@ description: Маршрутизатор библиотеки – определ�
 | Нужна структура сервиса, экраны, навигация | UX | `user-flows-ia` |
 | Нужно показать или проверить решение | UX | `prototyping` → `usability-testing` |
 | Нужно нарисовать или улучшить интерфейс | UX | `ui-design` + `ux-writing` |
+| CRM, реестр, админка, очередь согласований, рабочее место HR | UX | `complex-ui` + `ui-design` + `ux-writing` |
 | Нужна быстрая оценка интерфейса | UX | `ux-review` |
 | Решение выбрано, нужно передать в разработку | Требования | `requirements-spec` → `user-stories` → `spec-review` |
 | Требования согласованы, пора писать код | Разработка | `implementation-plan` → `coding-workflow` |
@@ -54,7 +55,7 @@ idea-triage
  → problem-statement → jtbd → process-modeling
  → cjm → service-blueprint
  → hypotheses → prioritization → business-case
- → user-flows-ia → prototyping → ux-writing / ui-design → ux-review → usability-testing
+ → user-flows-ia → prototyping → ux-writing / ui-design / complex-ui → ux-review → usability-testing
  → decision-defense (согласование)
  → requirements-spec → user-stories → spec-review
  → implementation-plan → coding-workflow ⇄ debugging → testing → code-review → security-review
