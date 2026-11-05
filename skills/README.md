@@ -13,6 +13,7 @@
 |---|---|
 | [working-principles](00-core/working-principles/SKILL.md) | Общие правила для всех: факт против гипотезы, `OPEN`, один факт – одно место, доказательства до заявлений |
 | [skill-router](00-core/skill-router/SKILL.md) | Какие скиллы брать под задачу и в каком порядке |
+| [editorial-policy](00-core/editorial-policy/SKILL.md) | Редполитика: тон, «вы»/«ты», ясный язык, оформление, словарь, деликатные HR-темы, каналы, ИИ-штампы |
 
 ### 01 · Анализ идей, проверка информации, сбор данных
 | Скилл | Зачем |
@@ -45,7 +46,7 @@
 | [prototyping](03-ux/prototyping/SKILL.md) | Детализация под вопрос, вайрфрейм-спека, HTML-прототип |
 | [ui-design](03-ux/ui-design/SKILL.md) | Иерархия, формы, таблицы, состояния, корпоративный UI |
 | [complex-ui](03-ux/complex-ui/SKILL.md) | Сложные рабочие интерфейсы: CRM, реестры, очереди, клавиатура, плотность, ИИ-помощник |
-| [ux-writing](03-ux/ux-writing/SKILL.md) | Кнопки, ошибки, уведомления, глоссарий |
+| [ux-writing](03-ux/ux-writing/SKILL.md) | Кнопки, ошибки, уведомления, пустые состояния |
 | [usability-testing](03-ux/usability-testing/SKILL.md) | Тест на 5 пользователях, SUS, разбор находок |
 | [ux-review](03-ux/ux-review/SKILL.md) | Эвристики Нильсена + WCAG 2.2 AA |
 
