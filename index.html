@@ -110,7 +110,17 @@
   .tag.resume:hover { filter: brightness(1.1); }
   :root[data-theme="dark"] .tag.resume { color: #0F141B; }
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tag.resume { color: #0F141B; } }
-  .outro { text-align: center; }
+  .outro { display: grid; grid-template-columns: 250px 1fr 250px; grid-template-areas: "l c r"; align-items: end; gap: 12px; text-align: center; }
+  .outro-main { grid-area: c; align-self: center; }
+  .outro .cat { display: block; } .outro .cat img { width: 100%; height: auto; display: block; }
+  .outro .cat-left { grid-area: l; } .outro .cat-right { grid-area: r; }
+  .outro .cat .cat-d { display: none; }
+  :root[data-theme="dark"] .outro .cat .cat-l { display: none; } :root[data-theme="dark"] .outro .cat .cat-d { display: block; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .outro .cat .cat-l { display: none; } :root:not([data-theme="light"]) .outro .cat .cat-d { display: block; } }
+  @media (max-width: 860px) {
+    .outro { grid-template-columns: 1fr 1fr; grid-template-areas: "c c" "l r"; }
+    .outro .cat { width: 100%; max-width: 220px; justify-self: center; }
+  }
   .outro h2 { font-size: clamp(26px, 3.6vw, 32px); font-weight: 600; line-height: 1.2; margin: 0 0 20px; }
   .big-cta { font-size: 17px; padding: 12px 24px; }
   .lead { font-family: var(--serif); font-weight: 500; font-size: 19px; line-height: 1.5; margin: 36px 0 0; padding-top: 28px; border-top: 1px solid var(--rule); }
@@ -548,10 +558,12 @@
   </section>
 
   <section class="cloud outro" aria-labelledby="outro">
+    <span class="cat cat-left" aria-hidden="true"><img class="cat-l" src="cat-left-light.png" alt="" loading="lazy" decoding="async"><img class="cat-d" src="cat-left-dark.png" alt="" loading="lazy" decoding="async"></span>
     <div class="outro-main">
       <h2 id="outro">Хотите обсудить работу?</h2>
     <a class="tag resume big-cta" href="https://hh.ru/resume/d18449ebff11461b4d0039ed1f416568594537" target="_blank" rel="noopener" onclick="goal('hh_open_bottom')">Контакты на hh.ru</a>
     </div>
+    <span class="cat cat-right" aria-hidden="true"><img class="cat-l" src="cat-right-light.png" alt="" loading="lazy" decoding="async"><img class="cat-d" src="cat-right-dark.png" alt="" loading="lazy" decoding="async"></span>
   </section>
 
   <footer class="foot">Сайт использует Яндекс Метрику и cookies, чтобы понимать, что посетителям интересно</footer>
