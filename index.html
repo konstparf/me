@@ -728,7 +728,7 @@
         b.setAttribute("aria-selected", String(on));
         b.tabIndex = on ? 0 : -1;
       });
-      if (reveal) {
+      if (reveal && window.matchMedia("(max-width: 860px)").matches) {
         var panel = document.getElementById("p-" + id);
         panel.scrollIntoView({ block: "start", behavior: "smooth" });
         var head = panel.querySelector(".p-name");
