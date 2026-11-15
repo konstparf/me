@@ -57,6 +57,7 @@
     --accent: #2E46C2;
     --accent-soft: #E6EAFC;
     --shadow: 0 1px 2px rgba(23,32,44,.04), 0 8px 28px rgba(23,32,44,.06);
+    --edge: rgba(23,32,44,.07); --edge-hi: rgba(255,255,255,0); --tag-bg: var(--bg); --btn-edge: transparent;
 
     --c-lob: #8A94A3; --t-lob: #5F6979;
     --c-fnx: #7A4FD6; --t-fnx: #6A3FC8;
@@ -78,7 +79,8 @@
       --accent: #8FA0FF;
       --accent-soft: #232C4A;
       --shadow: none;
-      --c-lob: #8A94A3; --c-fnx: #8E68E6; --c-svz: #F5A623; --c-crd: #29A8E0; --c-dom: #2EA44F; --c-sgz: #3A72DC;
+      --edge: rgba(255,255,255,.08); --edge-hi: rgba(255,255,255,.05); --tag-bg: #232B38; --btn-edge: rgba(255,255,255,.16);
+      --c-lob: #8A94A3; --c-fnx: #7A4FD6; --c-svz: #F5A623; --c-crd: #29A8E0; --c-dom: #2EA44F; --c-sgz: #3A72DC;
       --t-lob: #A9B2BF; --t-fnx: #A88BF2; --t-svz: #F7B84A; --t-crd: #5CC4F0; --t-dom: #4CC56E; --t-sgz: #7FA4F2;
     }
   }
@@ -91,7 +93,8 @@
     --accent: #8FA0FF;
     --accent-soft: #232C4A;
     --shadow: none;
-    --c-lob: #8A94A3; --c-fnx: #8E68E6; --c-svz: #F5A623; --c-crd: #29A8E0; --c-dom: #2EA44F; --c-sgz: #3A72DC;
+    --edge: rgba(255,255,255,.08); --edge-hi: rgba(255,255,255,.05); --tag-bg: #232B38; --btn-edge: rgba(255,255,255,.16);
+    --c-lob: #8A94A3; --c-fnx: #7A4FD6; --c-svz: #F5A623; --c-crd: #29A8E0; --c-dom: #2EA44F; --c-sgz: #3A72DC;
       --t-lob: #A9B2BF; --t-fnx: #A88BF2; --t-svz: #F7B84A; --t-crd: #5CC4F0; --t-dom: #4CC56E; --t-sgz: #7FA4F2;
   }
 
@@ -112,11 +115,11 @@
     color: var(--muted); cursor: pointer; display: grid; place-items: center;
   }
   .theme button:hover { color: var(--ink); }
-  .theme button[aria-pressed="true"] { background: var(--cloud); color: var(--accent); }
+  .theme button[aria-pressed="true"] { background: var(--cloud); color: var(--accent); border: 1px solid var(--edge); }
   .theme svg { width: 18px; height: 18px; }
 
   /* Облака */
-  .cloud { background: var(--cloud); border-radius: 28px; padding: 40px; box-shadow: var(--shadow); margin-bottom: 20px; }
+  .cloud { background: var(--cloud); border-radius: 28px; padding: 40px; box-shadow: var(--shadow), inset 0 1px 0 var(--edge-hi); border: 1px solid var(--edge); margin-bottom: 20px; }
   .cloud > h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(26px, 3.6vw, 32px); line-height: 1.2; margin: 0 0 6px; }
   .note { color: var(--muted); margin: 0 0 28px; }
   .hint { display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; color: var(--accent); }
@@ -124,8 +127,8 @@
 
   /* Приветствие */
   .hello { display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: center; }
-  .photo { width: 168px; height: 168px; border-radius: 50%; object-fit: cover; display: block; }
-  .wish { font-family: var(--serif); font-weight: 600; font-size: clamp(34px, 6vw, 52px); line-height: 1.1; margin: 0 0 12px; letter-spacing: -0.02em; }
+  .photo { width: 168px; height: 168px; border-radius: 50%; object-fit: cover; display: block; box-shadow: 0 0 0 1px var(--edge), 0 10px 24px rgba(0,0,0,.10); }
+  .wish { font-size: 19px; margin: 0 0 4px; }
   .intro { font-size: 19px; margin: 0 0 16px; }
   .tags { display: flex; flex-wrap: wrap; gap: 8px; }
   .tag { font-size: 14px; padding: 5px 12px; border-radius: 999px; background: var(--bg); }
@@ -147,7 +150,7 @@
   }
   .outro h2 { font-size: clamp(26px, 3.6vw, 32px); font-weight: 600; line-height: 1.2; margin: 0 0 20px; }
   .big-cta { font-size: 17px; padding: 12px 24px; }
-  .lead { font-family: var(--serif); font-weight: 500; font-size: 19px; line-height: 1.5; margin: 36px 0 0; padding-top: 28px; border-top: 1px solid var(--rule); }
+  .lead { font-weight: 600; font-size: clamp(19px, 2vw, 22px); line-height: 1.4; letter-spacing: -0.005em; margin: 24px 0 0; padding-top: 22px; border-top: 1px solid var(--rule); }
 
   /* Шкала опыта */
   .scale-wrap { overflow-x: auto; margin: -6px -6px 14px; padding: 6px; scrollbar-width: none; }
@@ -162,10 +165,9 @@
   .bar {
     position: absolute; top: 8px; height: 44px; border: 0; padding: 0;
     border-radius: 12px; background: var(--c); color: var(--on, #fff); cursor: pointer;
-    display: grid; place-items: center; opacity: .72; transition: opacity .2s, box-shadow .2s;
+    display: grid; place-items: center; transition: box-shadow .2s;
   }
   .bar svg { width: 22px; height: 22px; }
-  .bar:hover { opacity: .8; }
   .bar[aria-selected="true"] { opacity: 1; box-shadow: 0 0 0 3px var(--cloud), 0 0 0 5px var(--c); }
 
   .picks { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
@@ -193,7 +195,7 @@
   .industry { display: inline-block; font-size: 13px; font-weight: 400; padding: 2px 10px; border-radius: 6px; background: color-mix(in srgb, var(--c) 14%, transparent); color: var(--ink); }
 
   .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 20px; }
-  .stat { background: var(--cloud); border-radius: 16px; padding: 16px 18px; }
+  .stat { background: var(--cloud); border-radius: 16px; padding: 16px 18px; border: 1px solid var(--edge); }
   .stat b { display: block; font-family: var(--serif); font-weight: 600; font-size: 34px; line-height: 1.1; color: var(--t); letter-spacing: -0.01em; overflow-wrap: anywhere; }
   .stat span { display: block; margin-top: 4px; font-size: 14.5px; color: var(--muted); line-height: 1.35; }
 
@@ -202,8 +204,9 @@
   .panel li::marker { color: var(--c); }
 
   /* Люди */
-  .people { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  .person { background: var(--bg); border-radius: 20px; padding: 22px; }
+  .people { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 40px; border-bottom: 1px solid var(--rule); }
+  .person:nth-child(3) { grid-column: 1 / -1; padding-right: 12%; }
+  .person { background: transparent; border-radius: 0; padding: 14px 0 18px; border-top: 1px solid var(--rule); }
   .person .big { font-family: var(--serif); font-weight: 600; font-size: 44px; line-height: 1; color: var(--accent); margin: 0 0 6px; letter-spacing: -0.02em; }
   .person .big small { font-size: 26px; color: var(--muted); font-weight: 500; }
   .person h3 { margin: 10px 0 6px; font-size: 18px; line-height: 1.3; }
@@ -211,7 +214,7 @@
 
   /* Подход */
   .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; position: relative; list-style: none; margin: 0; padding: 0; }
-  .step { position: relative; background: var(--bg); border-radius: 20px; padding: 20px 20px 22px; }
+  .step { position: relative; background: var(--bg); border-radius: 20px; padding: 20px 20px 22px; border: 1px solid var(--edge); }
   .step:not(:last-child)::after {
     content: ""; position: absolute; top: 34px; right: -12px; width: 10px; height: 10px; z-index: 1;
     border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); transform: rotate(45deg);
@@ -254,7 +257,7 @@
     background: #FF6A1F; clip-path: path("M5.5 0Q6.1 4.9 11 5.5Q6.1 6.1 5.5 11Q4.9 6.1 0 5.5Q4.9 4.9 5.5 0Z"); }
   .open-corp {
     display: inline-flex; align-items: center; gap: 8px; margin-top: 4px;
-    padding: 12px 20px; border-radius: 999px; background: #12233F; color: #fff;
+    padding: 12px 20px; border-radius: 999px; background: #12233F; color: #fff; border: 1px solid var(--btn-edge);
     font-weight: 600; font-size: 16px; text-decoration: none;
   }
   .open-corp::after { content: ""; width: 9px; height: 9px; border-top: 2px solid #FF6A1F; border-right: 2px solid #FF6A1F; transform: rotate(45deg); }
@@ -268,7 +271,7 @@
   /* Шкала опыта: подсказка и «пробуждение» */
   .note-tight { margin-bottom: 8px; }
   .demo-hint { margin-top: 2px; }
-  .demo-hint svg { animation: hint-bounce 1.3s ease-in-out infinite; }
+  .demo-hint svg { animation: hint-bounce 1.3s ease-in-out 7; }
   @keyframes hint-bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
   .hint-mobile { display: none; }
   @media (max-width: 860px) { .hint-desktop { display: none; } .hint-mobile { display: inline; } }
@@ -282,7 +285,7 @@
   .exp-intro .bar[aria-selected="true"] { animation: bar-wake .45s cubic-bezier(.2,.7,.3,1) both, bar-pulse 1.4s ease-in-out .6s 2; opacity: 1; }
   @keyframes bar-pulse { 0%,100% { box-shadow: 0 0 0 3px var(--cloud), 0 0 0 5px var(--c); } 50% { box-shadow: 0 0 0 3px var(--cloud), 0 0 0 10px var(--c); } }
   .p-nav { margin: 16px 0 0; }
-  .p-next { border: 0; padding: 0; background: none; cursor: pointer; font: inherit; font-size: 15px; font-weight: 500; color: var(--t); }
+  .p-next { border: 0; padding: 3px 0; background: none; cursor: pointer; font: inherit; font-size: 15px; font-weight: 500; color: var(--t); min-height: 24px; }
   .p-next:hover { text-decoration: underline; }
   @media (max-width: 860px) {
     .exp-intro .pick[aria-selected="true"] { animation: pick-glow 1.4s ease-in-out 2; }
@@ -399,7 +402,7 @@
     </div>
 
     <div class="picks" role="tablist" aria-label="Места работы">
-      <button class="pick" role="tab" id="t-lob" aria-controls="p-lob" aria-selected="false" style="--c: var(--c-lob); --t: var(--t-lob)" data-id="lob" data-from="2005.33" data-to="2009.67">
+      <button class="pick" role="tab" id="t-lob" aria-controls="p-lob" aria-selected="false" style="--c: var(--c-lob); --t: var(--t-lob); --on: #17202C" data-id="lob" data-from="2005.33" data-to="2009.67">
         <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
         <b>Портал GR</b><small>2005–2009<br>4,5 года</small>
       </button>
@@ -411,11 +414,11 @@
         <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></span>
         <b>Связной</b><small>2013–2016<br>2,5 года</small>
       </button>
-      <button class="pick" role="tab" id="t-crd" aria-controls="p-crd" aria-selected="false" style="--c: var(--c-crd); --t: var(--t-crd)" data-id="crd" data-from="2016.25" data-to="2019.67">
+      <button class="pick" role="tab" id="t-crd" aria-controls="p-crd" aria-selected="false" style="--c: var(--c-crd); --t: var(--t-crd); --on: #17202C" data-id="crd" data-from="2016.25" data-to="2019.67">
         <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3 10h18M7 15h4"/></svg></span>
         <b>CardsPro</b><small>2016–2019<br>3,5 года</small>
       </button>
-      <button class="pick" role="tab" id="t-dom" aria-controls="p-dom" aria-selected="true" style="--c: var(--c-dom); --t: var(--t-dom)" data-id="dom" data-from="2019.92" data-to="2026.5">
+      <button class="pick" role="tab" id="t-dom" aria-controls="p-dom" aria-selected="true" style="--c: var(--c-dom); --t: var(--t-dom); --on: #17202C" data-id="dom" data-from="2019.92" data-to="2026.5">
         <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11L12 4l8.5 7"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></svg></span>
         <b>Домклик</b><small>2019–2026<br>7 лет</small>
       </button>
@@ -712,7 +715,7 @@
       scale.appendChild(b);
       bars.push(b);
     });
-    function select(id, focus) {
+    function select(id, focus, reveal) {
       picks.forEach(function (p) {
         var on = p.dataset.id === id;
         p.setAttribute("aria-selected", String(on));
@@ -725,16 +728,22 @@
         b.setAttribute("aria-selected", String(on));
         b.tabIndex = on ? 0 : -1;
       });
+      if (reveal) {
+        var panel = document.getElementById("p-" + id);
+        panel.scrollIntoView({ block: "start", behavior: "smooth" });
+        var head = panel.querySelector(".p-name");
+        if (head) { head.setAttribute("tabindex", "-1"); head.focus({ preventScroll: true }); }
+      }
     }
     picks.forEach(function (p, i) {
-      p.addEventListener("click", function () { select(p.dataset.id); goal("company_open", { company: p.querySelector("b").textContent }); });
+      p.addEventListener("click", function () { select(p.dataset.id, false, true); goal("company_open", { company: p.querySelector("b").textContent }); });
       p.addEventListener("keydown", function (e) {
         var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
         if (d) { e.preventDefault(); select(picks[(i + d + picks.length) % picks.length].dataset.id, true); }
       });
     });
     bars.forEach(function (b, i) {
-      b.addEventListener("click", function () { select(b.dataset.id); goal("company_open", { company: b.dataset.company }); });
+      b.addEventListener("click", function () { select(b.dataset.id, false, true); goal("company_open", { company: b.dataset.company }); });
       b.addEventListener("keydown", function (e) {
         var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
         if (d) { e.preventDefault(); select(picks[(i + d + picks.length) % picks.length].dataset.id); bars[(i + d + bars.length) % bars.length].focus(); }
@@ -743,7 +752,7 @@
     document.querySelectorAll(".p-next").forEach(function (btn) {
       btn.addEventListener("click", function () {
         var next = picks.find(function (q) { return q.dataset.id === btn.dataset.next; });
-        select(next.dataset.id);
+        select(next.dataset.id, false, true);
         goal("company_open", { company: next.querySelector("b").textContent, via: "panel" });
       });
     });
