@@ -144,7 +144,7 @@
   .outro .cat { display: block; position: relative; transition: transform .4s ease; } .outro .cat img { width: 100%; height: auto; display: block; }
   .cat-alert { position: absolute; left: 0; top: 0; width: 100%; height: auto; opacity: 0; transition: opacity .25s ease; pointer-events: none; }
   .outro.cat-live .cat-alert { opacity: 1; }
-  .outro.cat-live .cat-right { transform: rotate(-3deg); transform-origin: 30% 90%; }
+
   .outro .cat-left { grid-area: l; } .outro .cat-right { grid-area: r; }
   .outro .cat .cat-d { display: none; }
   :root[data-theme="dark"] .outro .cat .cat-l { display: none; } :root[data-theme="dark"] .outro .cat .cat-d { display: block; }
@@ -804,7 +804,7 @@
     if (!window.matchMedia("(hover: hover) and (min-width: 861px)").matches) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     var outro = document.querySelector(".outro");
-    var cta = document.querySelector(".open-corp");
+    var cta = document.querySelector(".outro .big-cta");
     if (!outro || !cta) return;
     cta.addEventListener("mouseenter", function () { outro.classList.add("cat-live"); });
     cta.addEventListener("mouseleave", function () { outro.classList.remove("cat-live"); });
