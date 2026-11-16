@@ -141,7 +141,9 @@
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tag.resume { color: #0F141B; } }
   .outro { display: grid; grid-template-columns: 250px 1fr 250px; grid-template-areas: "l c r"; align-items: end; gap: 12px; text-align: center; }
   .outro-main { grid-area: c; align-self: center; }
-  .outro .cat { display: block; } .outro .cat img { width: 100%; height: auto; display: block; }
+  .outro .cat { display: block; position: relative; } .outro .cat img { width: 100%; height: auto; display: block; }
+  .cat-anim { position: absolute; left: 0; bottom: 0; width: 100%; height: auto; opacity: 0; transition: opacity .35s ease; pointer-events: none; }
+  .outro.cat-live .cat-anim { opacity: 1; }
   .outro .cat-left { grid-area: l; } .outro .cat-right { grid-area: r; }
   .outro .cat .cat-d { display: none; }
   :root[data-theme="dark"] .outro .cat .cat-l { display: none; } :root[data-theme="dark"] .outro .cat .cat-d { display: block; }
@@ -649,7 +651,7 @@
   </section>
 
   <section class="cloud outro" aria-labelledby="outro">
-    <span class="cat cat-left" aria-hidden="true"><img class="cat-l" src="cat-left-light.webp" width="493" height="268" alt="" loading="lazy" decoding="async"><img class="cat-d" src="cat-left-dark.webp" width="493" height="267" alt="" loading="lazy" decoding="async"></span>
+    <span class="cat cat-left" aria-hidden="true"><img class="cat-anim" data-src="cat-left-anim.webp" alt="" aria-hidden="true"><img class="cat-l" src="cat-left-light.webp" width="493" height="268" alt="" loading="lazy" decoding="async"><img class="cat-d" src="cat-left-dark.webp" width="493" height="267" alt="" loading="lazy" decoding="async"></span>
     <div class="outro-main">
       <h2 id="outro">Хотите обсудить работу?</h2>
     <a class="tag resume big-cta" href="https://hh.ru/resume/d18449ebff11461b4d0039ed1f416568594537" target="_blank" rel="noopener" onclick="goal('hh_open_bottom')">Контакты на hh.ru</a>
@@ -794,6 +796,21 @@
       }, { threshold: 0.35 });
       io.observe(expSection);
     }
+  })();
+
+  // Живой кот: анимация при наведении на финальный блок (только десктоп с мышью)
+  (function () {
+    if (!window.matchMedia("(hover: hover) and (min-width: 861px)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var outro = document.querySelector(".outro");
+    var anim = document.querySelector(".cat-anim");
+    if (!outro || !anim) return;
+    var loaded = false;
+    function load() { if (!loaded) { anim.src = anim.dataset.src; loaded = true; } }
+    if ("requestIdleCallback" in window) requestIdleCallback(load, { timeout: 8000 });
+    else setTimeout(load, 4000);
+    outro.addEventListener("mouseenter", function () { load(); outro.classList.add("cat-live"); });
+    outro.addEventListener("mouseleave", function () { outro.classList.remove("cat-live"); });
   })();
 
   // Эмоциональный слой: проявление секций, живые цифры, оживание финала
