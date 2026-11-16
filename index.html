@@ -155,7 +155,7 @@
   .lead { font-weight: 600; font-size: clamp(18px, 1.9vw, 21px); line-height: 1.4; letter-spacing: -0.005em; margin: 24px 0 0; padding-top: 22px; border-top: 1px solid var(--rule); text-wrap: balance; }
 
   /* Шкала опыта */
-  .scale-wrap { overflow-x: auto; margin: -6px -6px 14px; padding: 6px; scrollbar-width: none; }
+  .scale-wrap { overflow-x: auto; margin: -6px -6px 14px; padding: 6px; scrollbar-width: none; scroll-margin-top: 14px; }
   .scale-wrap::-webkit-scrollbar { display: none; }
   .scale { position: relative; height: 84px; min-width: 560px; }
   .years { position: absolute; left: 0; right: 0; bottom: 0; height: 28px; }
@@ -744,9 +744,14 @@
         b.setAttribute("aria-selected", String(on));
         b.tabIndex = on ? 0 : -1;
       });
-      if (reveal && window.matchMedia("(max-width: 860px)").matches) {
+      if (reveal) {
         var panel = document.getElementById("p-" + id);
-        panel.scrollIntoView({ block: "start", behavior: "smooth" });
+        if (window.matchMedia("(max-width: 860px)").matches) {
+          panel.scrollIntoView({ block: "start" });
+        } else {
+          var wrap = document.getElementById("scaleWrap");
+          if (wrap) wrap.scrollIntoView({ block: "start" });
+        }
         var head = panel.querySelector(".p-name");
         if (head) { head.setAttribute("tabindex", "-1"); head.focus({ preventScroll: true }); }
       }
